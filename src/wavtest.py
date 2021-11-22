@@ -13,11 +13,12 @@ def read_wav_file(filename):
     return samples, sample_rate, num_channels
 
 # https://publish.illinois.edu/augmentedlistening/tutorials/music-processing/tutorial-1-introduction-to-audio-processing-in-python/
-def plot_AmpT(data, to_file=False, filename='test.png', xlabel='Time', ylabel='Amplitude'):
+def plot_AmpT(data, to_file=False, filename='test.png', xlabel='Sample Index', ylabel='Amplitude'):
     plt.figure()
     plt.plot(data)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
+    plt.title('Waveform of Test Audio')
     if to_file:
         plt.savefig(filename)
     else:
@@ -57,8 +58,12 @@ def filter_spectogram_example():
 # plt.xlabel('Time [sec]')
 # plt.show()
 
+# filter_spectogram_example()
+
+
 samples, sample_rate, num_channels = read_wav_file('test.wav')
 # Left Channel
-plot_AmpT(samples[0])
+left_Samples = samples[:,0]
+plot_AmpT(left_Samples, to_file=True, filename='test_l.png')
 # Right Channel
-plot_AmpT(samples[1])
+plot_AmpT(samples[:,1], to_file=True, filename='test_r.png')
