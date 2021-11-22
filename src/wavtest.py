@@ -59,6 +59,6 @@ def filter_spectogram_example():
 
 samples, sample_rate, num_channels = read_wav_file('test.wav')
 # Left Channel
-plot_AmpT(samples[0])
+plot_AmpT(samples[:,0])
 # Right Channel
-plot_AmpT(samples[1])
+plot_AmpT(samples[:,1])
