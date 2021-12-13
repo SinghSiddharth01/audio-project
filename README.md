@@ -5,6 +5,7 @@ An audio library for room callibration and equalization.
 ## Resources
 1. [Important Scipy Documentation Including Filters](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.iirfilter.html)
 2. [IIR Filters](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.iirfilter.html)
+3. [Filter Design Using Scipy](https://warrenweckesser.github.io/papers/weckesser-scipy-linear-filters.pdf)
 
 ## Setup
 ### Environment
