@@ -8,7 +8,6 @@ from matplotlib import cm  # colour map
 
 # from IPython.display import Audio
 
-
 def read_wav_file(filename):
     sample_rate, samples = wavfile.read(filename)
     num_channels = samples.shape[1]
