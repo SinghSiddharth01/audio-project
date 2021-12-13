@@ -12,6 +12,7 @@ def read_wav_file(filename):
     num_channels = samples.shape[1]
     return samples, sample_rate, num_channels
 
+
 # https://publish.illinois.edu/augmentedlistening/tutorials/music-processing/tutorial-1-introduction-to-audio-processing-in-python/
 def plot_AmpT(data, to_file=False, filename='test.png', xlabel='Time', ylabel='Amplitude'):
     plt.figure()
@@ -58,7 +59,22 @@ def filter_spectogram_example():
 # plt.show()
 
 samples, sample_rate, num_channels = read_wav_file('test.wav')
+
+
+b, a = signal.iirfilter(2, 500, btype='lowpass', analog=True, ftype='butter')
+w, h = signal.freqs(b, a, 1000)
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+ax.semilogx(w / (2*np.pi), 20 * np.log10(np.maximum(abs(h), 1e-5)))
+ax.set_title('Chebyshev Type II bandpass frequency response')
+ax.set_xlabel('Frequency [Hz]')
+ax.set_ylabel('Amplitude [dB]')
+ax.axis((10, 1000, -100, 10))
+ax.grid(which='both', axis='both')
+plt.show()
+
+
 # Left Channel
-plot_AmpT(samples[:,0])
+#plot_AmpT(samples[:,0])
 # Right Channel
-plot_AmpT(samples[:,1])
+#plot_AmpT(samples[:,1])
